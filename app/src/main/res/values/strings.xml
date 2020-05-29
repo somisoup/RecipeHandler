@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">RecipeHandler</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Recipe Handler</string>
+    <string name="nav_header_subtitle">sk9260@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_search">Search Recipes</string>
+    <string name="menu_pantry">My Pantry</string>
+    <string name="menu_browse">Browse Recipe Database</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_about">About</string>
+</resources>
