@@ -2,8 +2,6 @@ package com.example.recipehandler
 
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,6 +11,10 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.room.Room
+import com.example.recipehandler.classes.DatabaseRepo
+import com.example.recipehandler.classes.RecipeDatabase
+import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,6 +36,16 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home, R.id.nav_search, R.id.nav_pantry), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        DatabaseRepo.db = Room.databaseBuilder(
+            applicationContext,
+            RecipeDatabase::class.java, "pantry-database"
+        ).build()
+
+        GlobalScope.launch {
+            populateDatabase()
+            readAndPrintDb()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
