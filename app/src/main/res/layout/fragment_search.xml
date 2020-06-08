@@ -8,12 +8,10 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.pantry.PantryFragment">
-
-
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.pantry.PantryFragment">
 
     <EditText
         android:id="@+id/search_name"
@@ -37,7 +35,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_name" />
+        app:layout_constraintTop_toBottomOf="@+id/search_name"
+        android:isIndicator="false"
+        android:rating="@={searchViewModel.searchRating}" />
+
 
     <EditText
         android:id="@+id/search_time"
@@ -72,8 +73,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_time"
-        android:onClick="@{() -> searchViewModel.onSearch()"/>
-
+        android:onClick="@={() -> searchViewModel.onSearch()}" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

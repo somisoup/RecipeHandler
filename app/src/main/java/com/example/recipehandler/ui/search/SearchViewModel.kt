@@ -7,7 +7,8 @@ import com.example.recipehandler.classes.Recipe
 
 class SearchViewModel : ViewModel() {
     val searchRecipe = Recipe()
-    var totalTime: String = ""
+    var searchRating : Float = 0.0F
+    lateinit var totalTime: String
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is the Search Recipes Fragment"
@@ -17,6 +18,7 @@ class SearchViewModel : ViewModel() {
     fun onSearch() {
         searchRecipe.prepTime = totalTime.toInt() / 2
         searchRecipe.cookTime = totalTime.toInt() - searchRecipe.prepTime
-
+        searchRecipe.rating = searchRating.toInt()
+        println("${searchRecipe.prepTime} ${searchRecipe.cookTime} ${searchRecipe.rating}")
     }
 }
